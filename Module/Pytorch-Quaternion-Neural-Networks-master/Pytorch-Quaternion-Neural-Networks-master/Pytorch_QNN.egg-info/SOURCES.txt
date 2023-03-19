@@ -1,0 +1,10 @@
+LICENSE.md
+README.md
+setup.py
+Pytorch_QNN.egg-info/PKG-INFO
+Pytorch_QNN.egg-info/SOURCES.txt
+Pytorch_QNN.egg-info/dependency_links.txt
+Pytorch_QNN.egg-info/top_level.txt
+core_qnn/__init__.py
+core_qnn/quaternion_layers.py
+core_qnn/quaternion_ops.py
