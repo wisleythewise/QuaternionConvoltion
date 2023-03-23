@@ -283,7 +283,10 @@ class QuaternionLinear(Module):
 
     def forward(self, input):
         # See the autograd section for explanation of what happens here.
-        if input.dim() == 3:
+        # if input.dim() == 3:
+        if input.dim() == 4:
+            input = input[0][:3].permute((1,2,0))
+
             T, N, C = input.size()
             input  = input.view(T * N, C)
             output = QuaternionLinearFunction.apply(input, self.r_weight, self.i_weight, self.j_weight, self.k_weight, self.bias)
@@ -291,6 +294,7 @@ class QuaternionLinear(Module):
         elif input.dim() == 2:
             output = QuaternionLinearFunction.apply(input, self.r_weight, self.i_weight, self.j_weight, self.k_weight, self.bias)
         else:
+            # karijkajfladskfj
             raise NotImplementedError
 
         return output
