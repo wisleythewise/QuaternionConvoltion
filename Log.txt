@@ -1,0 +1,5 @@
+## Hyperparameters that were tuned but did not result in an increase in the accuracy
+
+lr:             0.00001
+weight-decay:   1e-7
+
