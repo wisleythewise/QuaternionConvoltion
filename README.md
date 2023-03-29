@@ -1,34 +1,36 @@
-# Accuracy obtained with no addiotinal tunen (aka benchmark): 50.9000%
+# Different runs of our model
+
+## QCNN Cifar-10
+Below the results of our cifar-10 are shown ran with the QCNN
+
+### 42.2800%
+Achieved using normalization of one and no filliping horizontal flipping int test set
+
+### 73.14% paper architecture QCNN
+Model without dropout, normal fullyconnected layers ad proposed in the paper and no normalization: 
+
+If we want to load the data of this model, it is called: 28_18_5_29_As_proposed_in_the_paper 
+
+It seems while running that the normal fully connected layers are performing better.
+
+![Loss function](./modelsParameters/29_10_29_39_QCNN.png)
 
 
-## Hyperparameters that were tuned but did not result in an increase in the accuracy
+## CNN Cifar-10
+Below the results of our cifar-10 are shown ran with the CNN
 
-- lr:             0.00001
-- weight-decay:   1e-7
-
-
-## To investigate
-
-### Normalization of one and no filliping horizontal flipping int test set: 42.2800%
-
-### Model without dropout, normal fullyconnected layers ad proposed in the paper and no normalization: 73.14% 
-If we want to load the data of this model, it is called: 28_18_5_29_As_proposed_in_the_paper fot the model cnn
-
-It seems while running that the normal fully connected layers are performing better. We are retrieving a loss of 1.7 instead of 2.1 on average. The weird thing is that is does not converge, which migt indicate that there is something wrong with the data loading. 
-
-![Loss function](like_the_paper.png)
-
-We have observed that we are not plotting the correct losses, it will have no impact on the implementation
-
-### Normal CNN with excact as many filters as the QCNN and twice as few parameters: 60.3100%
-
-We have tried to plot the correct losses now
+### 60.3100% 
+Normal CNN with excact as many filters as the QCNN and twice as few parameters: 
 
 ![Loss function](normalCNN.png)
 
-### Check how the weight initialization is done, and kept between the appropiate values 
+# Discussion
 
-### Look for other convolutional libraries
+The table that needs to be repoduces is depicted below. However our test results seem to diverge from this table. We are wondering if it is smart to keep on trying to achieve the 0.77 for the QCNN and 0.75 CNN or that it is smart to try and move on to the larger dataset.
+
+![Table 1](./Untitled.png)
 
 
+We were also wondering why it seems that our CNN performs so much worse and looking at our graphs vs those in the paper down below, our loss does not match at all, and we learn slower.
 
+![Table 1](./losses.png)
